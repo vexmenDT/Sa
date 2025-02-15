@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Día del Amor y la Amistad para Sara</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #ffe6f0;
+      overflow: hidden;
+    }
+    .book {
+      width: 600px;
+      height: 400px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: openBook 1.5s ease-in-out forwards;
+    }
+    @keyframes openBook {
+      from { transform: rotateY(90deg); }
+      to { transform: rotateY(0); }
+    }
+    .page {
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      display: none;
+      position: absolute;
+      overflow-y: auto;
+      font-size: 18px;
+    }
+    .page.active {
+      display: block;
+    }
+    .navigation {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ff6f9c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #ff3366;
+    }
+    .poem {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #fff8fa;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .emoji {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="book">
+    <div class="page active" id="page1">
+      <h1>Para mi querida Sara 💕</h1>
+      <p class="emoji">💖🌹😍🥰💑</p>
+      <div class="poem">
+        <p>Amor mío, en este día especial,</p>
+        <p>te celebro con todo mi ser,</p>
+        <p>como las estrellas que brillan sin fin,</p>
+        <p>así es mi amor por ti, inmortal y sin fin. 🌟</p>
+      </div>
+    </div>
+
+    <div class="page" id="page2">
+      <h2>Tu sonrisa, mi felicidad 🌼</h2>
+      <div class="poem">
+        <p>Cuando sonríes, el mundo entero florece,</p>
+        <p>mi alma danza en un jardín de paz,</p>
+        <p>gracias por ser mi luz constante,</p>
+        <p>mi musa, mi alegría, mi razón para amar. 🌸</p>
+      </div>
+      <p class="emoji">🌷💕💫🌻💓</p>
+    </div>
+
+    <div class="page" id="page3">
+      <h2>Siempre juntos 💑</h2>
+      <div class="poem">
+        <p>Prometo ser tu refugio,</p>
+        <p>prometo ser tu paz,</p>
+        <p>en cada paso, en cada instante,</p>
+        <p>mi amor por ti jamás cesará. ❤️</p>
+      </div>
+      <p class="emoji">🌟💖🌺🥂🌹</p>
+    </div>
+
+    <div class="navigation">
+      <button onclick="prevPage()">Anterior</button>
+      <button onclick="nextPage()">Siguiente</button>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 1;
+
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach((pageEl, index) => {
+        if (index + 1 === page) {
+          pageEl.classList.add('active');
+        } else {
+          pageEl.classList.remove('active');
+        }
+      });
+    }
+
+    function nextPage() {
+      if (currentPage < 3) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+  </script>
+</body>
+</html>
